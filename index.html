@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>X - Surpresa!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #000000, #2d3436);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        h1 {
+            font-size: 8rem;
+            margin: 0;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            animation: pulse 2s infinite;
+        }
+        
+        p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            opacity: 0.8;
+        }
+        
+        .x {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0;
+            animation: float 5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        button {
+            background: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            margin-top: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>X</h1>
+        <p>Você encontrou o site surpresa!</p>
+        <button onclick="window.open('inicio.html')">Clique para mais X</button>
+    </div>
+
+    <script>
+        function createX() {
+            for (let i = 0; i < 20; i++) {
+                const x = document.createElement('div');
+                x.className = 'x';
+                x.textContent = 'X';
+                x.style.left = Math.random() * 100 + 'vw';
+                x.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                x.style.animationDelay = Math.random() * 2 + 's';
+                document.body.appendChild(x);
+                
+                // Remove após a animação
+                setTimeout(() => {
+                    x.remove();
+                }, 5000);
+            }
+        }
+        
+        // Inicia com alguns X flutuantes
+        window.onload = function() {
+            createX();
+            setInterval(createX, 3000);
+        };
+    </script>
+</body>
+</html>
