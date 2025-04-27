@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>X - Surpresa!</title>
+    <title>X</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #000000, #2d3436);
-            color: white;
+            color: rgb(68, 255, 6);
             margin: 0;
             padding: 0;
             height: 100vh;
@@ -27,8 +27,8 @@
         h1 {
             font-size: 8rem;
             margin: 0;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-            animation: pulse 2s infinite;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+            animation: pulse 1000ms infinite;
         }
         
         p {
@@ -58,7 +58,7 @@
         }
         
         button {
-            background: white;
+            background: rgb(0, 0, 0);
             border: none;
             padding: 15px 30px;
             font-size: 1.2rem;
@@ -78,8 +78,8 @@
 <body>
     <div class="container">
         <h1>X</h1>
-        <p>Você encontrou o site surpresa!</p>
-        <button onclick="window.open('inicio.html')">Clique para mais X</button>
+        <p></p>
+        <button onclick="window.open('inicio.html')">Clique para mais</button>
     </div>
 
     <script>
@@ -103,7 +103,7 @@
         // Inicia com alguns X flutuantes
         window.onload = function() {
             createX();
-            setInterval(createX, 3000);
+            setInterval(createX, 5000);
         };
     </script>
 </body>
